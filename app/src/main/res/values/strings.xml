@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SpeedMate</string>
+    <string name="tab_text_1">Home</string>
+    <string name="tab_text_2">Settings</string>
+    <string name="tab_text_3">Export</string>
+    <string name="home_title_text">Data Preview</string>
+    <string name="startBtn_text">Start</string>
+    <string name="GraphTypeKey">GraphType</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

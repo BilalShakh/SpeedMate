@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/graphTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Graph of..."
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id="@+id/SpeedVTimecheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Speed-Time" />
+
+        <CheckBox
+            android:id="@+id/SvECheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ΔSpeed-ΔTime" />
+
+        <CheckBox
+            android:id="@+id/EvTCheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elevation-Time" />
+
+        <TextView
+            android:id="@+id/SITitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Speed measurement interval..."
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/SpeedValSeekBar"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="335dp"
+                android:layout_height="31dp"
+                android:min="1"
+                android:max="10" />
+
+            <TextView
+                android:id="@+id/SITextView"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_weight="1"
+                android:text="1s"
+                android:textAlignment="center"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ElTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elevation measurement interval..."
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/ElevationValSeekBar"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="290dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:max="20"
+                android:min="10"
+                android:progress="0" />
+
+            <TextView
+                android:id="@+id/EltextView"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_weight="1"
+                android:text="10s"
+                android:textAlignment="center"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+    </LinearLayout>
+</FrameLayout>
