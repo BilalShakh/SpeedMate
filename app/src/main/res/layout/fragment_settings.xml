@@ -14,8 +14,10 @@
             android:id="@+id/graphTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Graph of..."
-            android:textSize="20sp" />
+            android:text=" Graph of:"
+            android:textColor="#050609"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <CheckBox
             android:id="@+id/SpeedVTimecheckBox"
@@ -39,8 +41,10 @@
             android:id="@+id/SITitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Speed measurement interval..."
-            android:textSize="20sp" />
+            android:text="  Speed measurement interval:"
+            android:textColor="#090202"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,8 +73,10 @@
             android:id="@+id/ElTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Elevation measurement interval..."
-            android:textSize="20sp" />
+            android:text="  Elevation measurement interval:"
+            android:textColor="#141010"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"

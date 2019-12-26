@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import android.widget.Chronometer;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -141,16 +142,16 @@ public class Home extends Fragment implements LocationListener {
         requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},12);
 
         //Event handler for starting the measurement process
-        Button startBtn = view.findViewById(R.id.startBtn);
+        final Button startBtn = view.findViewById(R.id.startBtn);
         final Chronometer chronometer = view.findViewById(R.id.Chronometer);
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startMeasurement(chronometer);
+                startMeasurement(chronometer,startBtn);
             }
         });
 
-        //Se
+        //Event Handler for reseting the app
         Button resetButton = view.findViewById(R.id.resetBtn);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,11 +167,12 @@ public class Home extends Fragment implements LocationListener {
         mGraph.setDragEnabled(true);
         mGraph.setScaleEnabled(false);
 
+        final EditText nameEditText = view.findViewById(R.id.NameEditText);
         Button saveBtn = view.findViewById(R.id.saveBtn);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveSpreadSheet(workbook);
+                saveSpreadSheet(workbook,nameEditText);
             }
         });
 
@@ -178,7 +180,7 @@ public class Home extends Fragment implements LocationListener {
         return view;
     }
 
-    private void startMeasurement(Chronometer chronometer) {
+    private void startMeasurement(Chronometer chronometer,Button startbtn) {
 
         if(StartOrStop){
             startTime = SystemClock.elapsedRealtime();
@@ -193,6 +195,16 @@ public class Home extends Fragment implements LocationListener {
 
         //Setup Sensor
         StartOrStop=reverseBool(StartOrStop);
+        reverseButtonTxt(startbtn);
+    }
+
+    private void reverseButtonTxt(Button startbtn) {
+        if(startbtn.getText().toString().equals("Start")){
+            startbtn.setText("Stop");
+        }
+        else{
+            startbtn.setText("Start");
+        }
     }
 
     private void StartChronometer(Chronometer chronometer) {
@@ -254,9 +266,16 @@ public class Home extends Fragment implements LocationListener {
         }
     }
 
-    private void saveSpreadSheet(HSSFWorkbook workbook) {
+    private void saveSpreadSheet(HSSFWorkbook workbook, EditText nameEditText) {
+
         //Setup file to save data
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),"speedData.xls");
+        String fileName = nameEditText.getText().toString()+".xls";
+
+        if (fileName.equals(".xls")){
+            fileName = "speedData.xls";
+        }
+
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),fileName);
         FileOutputStream fos = null;
 
         //Save the data into the directory stated above.
